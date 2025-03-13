@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fish Weight Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f5f8fa;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #0077b6;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            background-color: #0077b6;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #e6f7ff;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .fish-img {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .fish-img img {
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fish Weight Prediction</h1>
+        <div class="fish-img">
+            <img src="https://cdn-icons-png.flaticon.com/512/1728/1728946.png" alt="Fish icon">
+        </div>
+        
+        <form action="{{ url_for('predict') }}" method="post">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="length1">Length1 (cm):</label>
+                        <input type="number" class="form-control" id="length1" name="length1" step="0.01" required placeholder="Vertical length">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="length2">Length2 (cm):</label>
+                        <input type="number" class="form-control" id="length2" name="length2" step="0.01" required placeholder="Diagonal length">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="length3">Length3 (cm):</label>
+                        <input type="number" class="form-control" id="length3" name="length3" step="0.01" required placeholder="Cross length">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="height">Height (cm):</label>
+                        <input type="number" class="form-control" id="height" name="height" step="0.01" required placeholder="Height">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="width">Width (cm):</label>
+                        <input type="number" class="form-control" id="width" name="width" step="0.01" required placeholder="Diagonal width">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="species">Species:</label>
+                        <select class="form-control" id="species" name="species" required>
+                            <option value="Bream">Bream</option>
+                            <option value="Parkki">Parkki</option>
+                            <option value="Perch">Perch</option>
+                            <option value="Pike">Pike</option>
+                            <option value="Roach">Roach</option>
+                            <option value="Smelt">Smelt</option>
+                            <option value="Whitefish">Whitefish</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Predict Weight</button>
+        </form>
+        
+        {% if prediction_text %}
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
