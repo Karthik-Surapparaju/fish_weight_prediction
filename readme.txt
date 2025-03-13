@@ -1,7 +1,7 @@
 # Fish Weight Prediction Model
 
 ## Project Overview
-This project creates a machine learning model to predict fish weights based on measurements from the [Fish Market Dataset](https://www.kaggle.com/aungpyaeap/fish-market). It implements a regression model to accurately estimate fish weight given various physical measurements.
+This project creates a machine learning model to predict fish weights based on measurements from the [Fish Market Dataset]. It implements a regression model to accurately estimate fish weight given various physical measurements.
 
 ## Problem Statement
 We are addressing a regression problem to predict the weight of fish based on their physical measurements (lengths, height, and width). This prediction can be useful for fish market operations, fishing industries, and marine biology research.
@@ -22,7 +22,7 @@ We are addressing a regression problem to predict the weight of fish based on th
 - `fish_model.pkl`: Serialized trained model
 - `scaler.pkl`: Serialized scaler for feature normalization
 - `templates/index.html`: Frontend HTML interface
-- `static/style.css`: CSS styling for the frontend
+- `static/style.css`:
 - `Fish.csv`: Dataset file
 
 ## How to Run Locally
